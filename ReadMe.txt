@@ -1,46 +1,105 @@
-🎮 Oyun Hakkında
-Bu proje, Unity ile geliştirilmiş bir rol yapma oyunudur (RPG). Oyuncu, bir kahramanı kontrol ederek çeşitli görevleri tamamlar, düşmanlarla savaşır ve hikayeyi ilerletir.
+# 🎮 Turn-Based RPG Battle System (Unity)
 
-🛠 Kurulum Talimatları
-Bu projeyi bilgisayarınıza indirin veya klonlayın
+Bu proje Unity kullanılarak geliştirilmiş **turn-based (sıra tabanlı) RPG savaş sistemi** içermektedir.  
+Oyun yapısı, klasik RPG’lerde (örn. Sonny tarzı) olduğu gibi **karaktere veya düşmana tıklayarak yetenek seçme** mantığına dayanır.
 
-Unity Hub'ı açın ve "Add Project" butonuna tıklayın
+## 🚀 Özellikler
 
-Proje klasörünü seçerek Unity'de açın
+- 🎯 **Sıra Tabanlı Savaş Sistemi**
+  - Oyuncu hamlesi → düşman hamlesi döngüsü
+- ⚔️ **Skill Wheel (Yetenek Çarkı)**
+  - Düşmana tıkla → saldırı skilleri
+  - Oyuncuya tıkla → heal / buff skilleri
+- 🌀 **Slot Bazlı Animasyon Sistemi**
+  - Skill Slot 1 → `Attack1`
+  - Skill Slot 2 → `Attack2`
+  - Skill Slot 3 → `Attack3`
+- 👾 **Farklı Animator Yapıları**
+  - Oyuncu: `Attack1 / Attack2 / Attack3`
+  - Düşman: tek `Attack`
+- ❤️ **HP / MP Sistemi**
+- 📊 **Slider ve Text tabanlı UI**
+- 🎨 **SpriteRenderer tabanlı 2D görseller**
+- 🧠 **GameManager ile merkezi veri yönetimi**
 
-Unity editörü projeyi yükledikten sonra çalışmaya başlayın
+---
 
-📋 Build Alma Adımları
-Unity editöründe File > Build Settings menüsüne gidin
+## 🕹️ Oynanış
 
-Scenes In Build kısmına tüm gerekli sahneleri ekleyin
+1. Oyun başladığında savaş sahnesi yüklenir
+2. Oyuncu:
+   - **Düşmana tıklarsa** → saldırı yetenekleri çıkar
+   - **Kendine tıklarsa** → iyileştirme / buff yetenekleri çıkar
+3. Skill seçildiğinde:
+   - İlgili **slot numarasına göre animasyon oynar**
+   - Hasar veya iyileştirme uygulanır
+4. Düşman kendi sırası geldiğinde otomatik saldırır
+5. HP 0 olursa:
+   - Oyuncu → Defeat
+   - Düşman → Victory
 
-StoryScene ve diğer sahnelerin listede olduğundan emin olun
+---
 
-Build butonuna tıklayarak oyunu derleyin
+## 🧩 Teknik Detaylar
 
-⚠️ Bilinen Sorunlar ve Çözümler
-Hata: "Scene 'StoryScene' couldn't be loaded"
+- **Unity Version:** 2022.x / 2023.x (2D)
+- **Dil:** C#
+- **UI:** Canvas + ScrollView + Button + TMP
+- **Animasyon:** Animator Controller (Trigger tabanlı)
+- **Input:** Mouse Click (Collider + ClickDetector)
 
-Çözüm: StoryScene'i Build Settings'e ekleyin
+---
 
-Sebep: Scene build listesinde değil veya AssetBundle yüklenmemiş
+## 📁 Önemli Scriptler
 
-📁 Önemli Dosyalar
-StoryScene.unity - Ana oyun sahnesi
+- `BattleManager.cs`  
+  → Savaş akışı, sıra sistemi, hasar hesaplama, animasyon tetikleme
 
-PlayerController.cs - Oyuncu kontrol scripti
+- `SkillWheelUI.cs`  
+  → Mouse pozisyonunda skill ikonlarını dairesel dizen UI sistemi
 
-GameManager.cs - Oyun yönetim scripti
+- `ClickDetector.cs`  
+  → Karakter ve düşman tıklamalarını algılar
 
-🎯 Özellikler
-Karakter seviye sistemi
+- `GameManager.cs`  
+  → Oyuncu statları, skill listesi, sahne geçişleri
 
-Envanter yönetimi
+---
 
-Görev sistemi
+## ⚙️ Kurulum
 
-Diyalog ağaçları
+1. Projeyi klonla veya indir
+2. Unity Hub üzerinden projeyi aç
+3. `Scenes/BattleScene` sahnesini çalıştır
+4. Play tuşuna bas 🎮
 
-Savaş mekaniği
+---
 
+## 🛠️ Geliştirme Notları
+
+- Skill sıralaması **GameManager’daki skill listesine göre** belirlenir
+- ScrollView içindeki UI objeleri için:
+  - `worldPositionStays = false` kullanılmıştır
+  - Anchor ve Pivot ayarları önemlidir
+- Physics2D Raycaster **yalnızca Main Camera üzerinde** bulunmalıdır
+
+---
+
+## 📌 Gelecek Planları
+
+- 🔮 Status Effects (Poison, Stun, Burn)
+- 🧙‍♂️ Mana regen / cooldown sistemi
+- 🎵 Ses efektleri ve vuruş feedback
+- 💾 Save / Load sistemi
+
+---
+
+## 👤 Geliştirici
+
+**Yavuz Selim Köse**  
+Unity & Game Development  
+Türkiye 🇹🇷
+
+---
+
+> Bu proje eğitim ve portföy amaçlı geliştirilmiştir.
