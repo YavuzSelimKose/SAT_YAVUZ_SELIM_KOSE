@@ -101,5 +101,23 @@ Unity & Game Development
 Türkiye 🇹🇷
 
 ---
+## 🎨 Asset & Kaynaklar (itch.io)
+
+Bu projede kullanılan görsel ve UI assetlerinin bir kısmı **itch.io** üzerinden edinilmiştir.
+
+### Kullanılan Asset Türleri
+- 🧙‍♂️ 2D karakter sprite ve animasyonları
+- 👾 Düşman sprite ve animasyonları
+- 🎨 Arka plan görselleri
+- 🖼️ UI ikonları ve arayüz elementleri
+
+### Kaynak
+- https://itch.io/game-assets
+- Asset’ler ilgili geliştiricilerin itch.io sayfalarından indirilmiştir.
+
+> Tüm asset’ler, itch.io üzerindeki **ücretsiz veya izin verilen lisanslar** kapsamında  
+> **eğitim, portföy ve demo amaçlı** kullanılmıştır.
+
+Eğer proje ticari amaçla kullanılacak olursa, ilgili asset sahiplerinin lisans koşulları ayrıca gözden geçirilmelidir.
 
 > Bu proje eğitim ve portföy amaçlı geliştirilmiştir.
