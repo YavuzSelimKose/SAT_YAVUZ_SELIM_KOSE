@@ -1,123 +1,45 @@
-# 🎮 Turn-Based RPG Battle System (Unity)
+⚔️ Legend of Selim: The Rogue Pursuit
+Legend of Selim, Unity oyun motoru ve C# kullanılarak geliştirilmiş, derin hikaye anlatımı ve stratejik envanter yönetimine odaklanan bir 2D Sıra Tabanlı RPG (Role-Playing Game) projesidir. Oyuncuların Elias rehberliğinde başladığı bu yolculuk, basit bir hayatta kalma mücadelesinden devasa bir suç imparatorluğunu çökertme serüvenine dönüşür.
 
-Bu proje Unity kullanılarak geliştirilmiş **turn-based (sıra tabanlı) RPG savaş sistemi** içermektedir.  
-Oyun yapısı, klasik RPG’lerde (örn. Sonny tarzı) olduğu gibi **karaktere veya düşmana tıklayarak yetenek seçme** mantığına dayanır.
+🌟 Öne Çıkan Özellikler
+Merkezi Veritabanı Sistemi: Tüm eşya, düşman ve senaryo verileri GameManager üzerinden tek bir noktadan yönetilir.
 
-## 🚀 Özellikler
+Dinamik Dükkan ve Ekonomi: Alış ve satış fiyatları her eşya için özel olarak belirlenmiş olup, veritabanındaki güncellemeler dükkan arayüzüne anında yansır.
 
-- 🎯 **Sıra Tabanlı Savaş Sistemi**
-  - Oyuncu hamlesi → düşman hamlesi döngüsü
-- ⚔️ **Skill Wheel (Yetenek Çarkı)**
-  - Düşmana tıkla → saldırı skilleri
-  - Oyuncuya tıkla → heal / buff skilleri
-- 🌀 **Slot Bazlı Animasyon Sistemi**
-  - Skill Slot 1 → `Attack1`
-  - Skill Slot 2 → `Attack2`
-  - Skill Slot 3 → `Attack3`
-- 👾 **Farklı Animator Yapıları**
-  - Oyuncu: `Attack1 / Attack2 / Attack3`
-  - Düşman: tek `Attack`
-- ❤️ **HP / MP Sistemi**
-- 📊 **Slider ve Text tabanlı UI**
-- 🎨 **SpriteRenderer tabanlı 2D görseller**
-- 🧠 **GameManager ile merkezi veri yönetimi**
+Stratejik Eğitim (Tutorial) Kilidi: Oyuncunun temel mekanikleri (kılıç kuşanma ve yetenek açma) öğrenmeden ilerlemesini engelleyen akıllı kilit sistemi.
 
----
+Gelişmiş Diyalog Sistemi: Karakter görselleri ve isimlendirmeleriyle desteklenen, sürükleyici hikaye anlatımı.
 
-## 🕹️ Oynanış
+Kademeli Zorluk Eğrisi: 10 farklı düşman türüyle zayıftan güçlüye doğru ilerleyen ve 4000 HP'lik devasa bir boss savaşıyla sonlanan dengeli oyun akışı.
 
-1. Oyun başladığında savaş sahnesi yüklenir
-2. Oyuncu:
-   - **Düşmana tıklarsa** → saldırı yetenekleri çıkar
-   - **Kendine tıklarsa** → iyileştirme / buff yetenekleri çıkar
-3. Skill seçildiğinde:
-   - İlgili **slot numarasına göre animasyon oynar**
-   - Hasar veya iyileştirme uygulanır
-4. Düşman kendi sırası geldiğinde otomatik saldırır
-5. HP 0 olursa:
-   - Oyuncu → Defeat
-   - Düşman → Victory
+🛠️ Yöntem ve Teknik Detaylar
+Proje, modern oyun programlama prensipleri baz alınarak aşağıdaki teknolojilerle inşa edilmiştir:
 
----
+Oyun Motoru: Unity 2022+ (2D Core)
 
-## 🧩 Teknik Detaylar
+Dil: C# (Object Oriented Programming)
 
-- **Unity Version:** 2022.x / 2023.x (2D)
-- **Dil:** C#
-- **UI:** Canvas + ScrollView + Button + TMP
-- **Animasyon:** Animator Controller (Trigger tabanlı)
-- **Input:** Mouse Click (Collider + ClickDetector)
+Veri Yönetimi: [System.Serializable] sınıflar aracılığıyla yapılandırılmış veri modelleri ve Singleton tasarım deseni.
 
----
+Kullanıcı Arayüzü: TextMeshPro, Grid Layout Group ve Scroll View bileşenleri kullanılarak oluşturulmuş dinamik ve duyarlı menüler.
 
-## 📁 Önemli Scriptler
+Kalıcı Veri: Oyuncu ilerlemesi, envanter ve altın verileri JSON serileştirme ve PlayerPrefs kullanılarak saklanmaktadır.
 
-- `BattleManager.cs`  
-  → Savaş akışı, sıra sistemi, hasar hesaplama, animasyon tetikleme
+🕹️ Oynanış ve Akış
+Rehberlik: Elias ile başlayan diyaloglar oyuncuyu envantere yönlendirir.
 
-- `SkillWheelUI.cs`  
-  → Mouse pozisyonunda skill ikonlarını dairesel dizen UI sistemi
+Hazırlık: Oyuncu "Demir Kılıç" kuşanmalı ve "Normal Saldırı" yeteneğini açmalıdır.
 
-- `ClickDetector.cs`  
-  → Karakter ve düşman tıklamalarını algılar
+Gelişim: Her savaştan kazanılan altınlarla dükkandan daha güçlü zırh ve kalkanlar satın alınabilir.
 
-- `GameManager.cs`  
-  → Oyuncu statları, skill listesi, sahne geçişleri
+Final: Kademeli olarak artan düşman gücü, mağaranın sonundaki Hantal Haydup Patronu ile zirveye ulaşır.
 
----
+📂 Kurulum
+Bu repoyu bilgisayarınıza indirin veya klonlayın.
 
-## ⚙️ Kurulum
+Unity Hub üzerinden projeyi açın.
 
-1. Projeyi klonla veya indir
-2. Unity Hub üzerinden projeyi aç
-3. `Scenes/BattleScene` sahnesini çalıştır
-4. Play tuşuna bas 🎮
+Scenes/MenuScene sahnesine giderek "Play" butonuna basın.
 
----
-
-## 🛠️ Geliştirme Notları
-
-- Skill sıralaması **GameManager’daki skill listesine göre** belirlenir
-- ScrollView içindeki UI objeleri için:
-  - `worldPositionStays = false` kullanılmıştır
-  - Anchor ve Pivot ayarları önemlidir
-- Physics2D Raycaster **yalnızca Main Camera üzerinde** bulunmalıdır
-
----
-
-## 📌 Gelecek Planları
-
-- 🔮 Status Effects (Poison, Stun, Burn)
-- 🧙‍♂️ Mana regen / cooldown sistemi
-- 🎵 Ses efektleri ve vuruş feedback
-- 💾 Save / Load sistemi
-
----
-
-## 👤 Geliştirici
-
-**Yavuz Selim Köse**  
-Unity & Game Development  
-Türkiye 🇹🇷
-
----
-## 🎨 Asset & Kaynaklar (itch.io)
-
-Bu projede kullanılan görsel ve UI assetlerinin bir kısmı **itch.io** üzerinden edinilmiştir.
-
-### Kullanılan Asset Türleri
-- 🧙‍♂️ 2D karakter sprite ve animasyonları
-- 👾 Düşman sprite ve animasyonları
-- 🎨 Arka plan görselleri
-- 🖼️ UI ikonları ve arayüz elementleri
-
-### Kaynak
-- https://itch.io/game-assets
-- Asset’ler ilgili geliştiricilerin itch.io sayfalarından indirilmiştir.
-
-> Tüm asset’ler, itch.io üzerindeki **ücretsiz veya izin verilen lisanslar** kapsamında  
-> **eğitim, portföy ve demo amaçlı** kullanılmıştır.
-
-Eğer proje ticari amaçla kullanılacak olursa, ilgili asset sahiplerinin lisans koşulları ayrıca gözden geçirilmelidir.
-
-> Bu proje eğitim ve portföy amaçlı geliştirilmiştir.
+📜 Lisans
+Bu proje eğitim ve geliştirme amaçlı oluşturulmuştur. Görsel varlıklar (Kenney Assets vb.) kendi lisans şartlarına tabidir.
